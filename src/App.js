@@ -1,25 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import FunctionalComponent from './components/FunctionalComponent';
+import ClassComponent from './components/ClassComponent';
+import './components/Style.css';
+import { useState } from 'react';
 
 function App() {
+  const [name1, setName1] = useState(false)
+  const [name2, setName2] = useState(false)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <>
+        <h1 className='HeadindText'>Styling Using Functional and Class Component</h1>
+        <div>
+          <button id='btn1' onClick={() => { name1 ? setName1(false) : setName1(true) }}>To See Styling in Functional Component</button>
+          {name1 && <FunctionalComponent />}
+        </div>
+        <div>
+          <button id='btn2' onClick={() => { name2 ? setName2(false) : setName2(true) }}>To See Styling in Class Component</button>
+          {name2 && <ClassComponent />}
+        </div>
+      </>
     </div>
   );
 }
-
 export default App;
